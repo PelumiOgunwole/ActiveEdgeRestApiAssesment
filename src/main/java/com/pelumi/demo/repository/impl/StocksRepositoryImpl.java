@@ -18,11 +18,11 @@ public class StocksRepositoryImpl implements StockRepository {
     @Override
     public List<Stocks> getAll(Integer pageOffset) {
         String queryText = "select st from Stocks st order by st.lastUpdate desc";
-        TypedQuery<Stocks> applyForMeQuery = entityManager.createQuery(queryText, Stocks.class);
+        TypedQuery<Stocks> stockQuery = entityManager.createQuery(queryText, Stocks.class);
 
-        applyForMeQuery.setFirstResult((pageOffset - 1) * DEFAULT_PAGE_SIZE);
-        applyForMeQuery.setMaxResults(DEFAULT_PAGE_SIZE);
-        return applyForMeQuery.getResultList();
+        stockQuery.setFirstResult((pageOffset - 1) * DEFAULT_PAGE_SIZE);
+        stockQuery.setMaxResults(DEFAULT_PAGE_SIZE);
+        return stockQuery.getResultList();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class StocksRepositoryImpl implements StockRepository {
             return body;
         }
         catch (EntityExistsException ex) {
-            throw new StockDuplicateException("Stock product not existing");
+            throw new StockDuplicateException("Selected Stock with " + body.getId() +  " already existing");
         }
     }
 

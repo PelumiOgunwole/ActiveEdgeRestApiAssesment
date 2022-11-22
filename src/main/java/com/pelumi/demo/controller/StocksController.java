@@ -32,6 +32,7 @@ public class StocksController {
     }
 
     @GetMapping("/stocks")
+    @CrossOrigin
     public ResponseEntity<APIResponse> getAllStocks(@RequestParam(required = false, defaultValue = "1" , name = "page") Integer pageNumber){
         return Responder.okay(stockService.getAllStocks(pageNumber));
     }

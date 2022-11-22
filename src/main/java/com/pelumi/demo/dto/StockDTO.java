@@ -16,4 +16,8 @@ public class StockDTO {
     public StockDTO(String name) {
         this.name = name;
     }
+
+    public StockDTO(long l, String extension_box, int i) {
+
+    }
 }
