@@ -104,18 +104,18 @@ curl --location --request PUT 'http://localhost:8090/api/stocks/1' \
 
 ### Response
 json
-{
-"message": "Request Successful",
-"success": true,
-"payload": {
-"name": "Ox 18.0 Standing Fan",
-"currentPrice": 8000.0,
-"createDate": "2022-11-21T22:16:40.177+00:00",
-"lastUpdate": "2022-11-21T22:17:27.711+00:00",
-"id": 1
-}
-}
-}
+  {
+  "message": "Request Successful",
+  "success": true,
+  "payload": {
+  "name": "Ox 18.0 Standing Fan",
+  "currentPrice": 8000.0,
+  "createDate": "2022-11-21T22:16:40.177+00:00",
+  "lastUpdate": "2022-11-21T22:17:27.711+00:00",
+  "id": 1
+  }
+  }
+  }
 
 
 ### Get Stock By Id
