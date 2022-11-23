@@ -2,7 +2,7 @@
 
 ## About the Project
 This is a basic REST API project built with Spring Boot to perform certain CRUD operations.
-It uses PostgreSQL to store data
+It uses PostgreSQL to store data and H2 in-memory database for testing.
 If your database connection properties work, you can call some REST endpoints defined in com.khoubyari.example.api.rest.hotelController on port 9090.
 
 Here are some endpoints you can call:
@@ -104,18 +104,18 @@ curl --location --request PUT 'http://localhost:8090/api/stocks/1' \
 
 ### Response
 json
-{
-"message": "Request Successful",
-"success": true,
-"payload": {
-"name": "Ox 18.0 Standing Fan",
-"currentPrice": 8000.0,
-"createDate": "2022-11-21T22:16:40.177+00:00",
-"lastUpdate": "2022-11-21T22:17:27.711+00:00",
-"id": 1
-}
-}
-}
+  {
+  "message": "Request Successful",
+  "success": true,
+  "payload": {
+  "name": "Ox 18.0 Standing Fan",
+  "currentPrice": 8000.0,
+  "createDate": "2022-11-21T22:16:40.177+00:00",
+  "lastUpdate": "2022-11-21T22:17:27.711+00:00",
+  "id": 1
+  }
+  }
+  }
 
 
 ### Get Stock By Id
@@ -136,7 +136,7 @@ json
 "timeStamp": "2022-11-22T00:16:13.832056",
 "stock": {
 "id": 3,
-"name": "BitCoin",
+"name": "Fan",
 "currentPrice": 10000,
 "createDate": "2022-11-22T00:15:23.555844",
 "lastUpdate": "2022-11-22T00:15:23.556001"
