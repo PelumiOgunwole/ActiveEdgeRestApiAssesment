@@ -23,11 +23,18 @@ public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
+
+    /* @Bean annotation is used to mark a method to be universal or
+    * made available in all part of the application*/
     @Bean
     public ModelMapper getModelMapper() {
         return new ModelMapper();
     }
 
+
+    /*
+    * Command Line runner is used to load data into database at run time, so that data will
+    * always be available. */
     @Bean
     CommandLineRunner runner(StockJpaRepository stockRepository) {
         return args ->

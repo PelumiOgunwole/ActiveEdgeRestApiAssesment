@@ -9,14 +9,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.time.LocalDateTime;
 
+/* @ControllerAdvice annotation helps to catch errors
+    or Exceptions in any part of the application and throw back a meaningful error respnse.
+
+    @ExceptionHandler manages specific Exceptions where used
+
+ */
 @ControllerAdvice
 public class CustomizedExceptionHandling extends ResponseEntityExceptionHandler {
+
 
     @ExceptionHandler(StockDuplicateException.class)
     public ResponseEntity<Object> handleExceptions(StockDuplicateException exception, WebRequest webRequest) {
         ExceptionResponse response = new ExceptionResponse();
         response.setDateTime(LocalDateTime.now());
-        response.setMessage("Selected Stock Already Exists");
+        response.setMessage("Specified Stock Already Exists");
         ResponseEntity<Object> entity = new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         return entity;
     }

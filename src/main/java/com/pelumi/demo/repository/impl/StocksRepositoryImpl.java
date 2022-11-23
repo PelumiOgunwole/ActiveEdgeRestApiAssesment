@@ -12,12 +12,19 @@ import java.util.List;
 @Repository
 public class StocksRepositoryImpl implements StockRepository {
 
+    /*
+    * This class is a way of abstracting the repository
+    * for security concerns and to prevent direct access to it.
+    * EntityManager is used for the work of persistence and do queries to the database
+    * */
+
     private static final int DEFAULT_PAGE_SIZE = 11;
     @PersistenceContext
     private EntityManager entityManager;
+
     @Override
     public List<Stocks> getAll(Integer pageOffset) {
-        String queryText = "select st from Stocks st order by st.lastUpdate desc";
+        String queryText = "select st from Stocks st order by st.lastUpdate asc";
         TypedQuery<Stocks> stockQuery = entityManager.createQuery(queryText, Stocks.class);
 
         stockQuery.setFirstResult((pageOffset - 1) * DEFAULT_PAGE_SIZE);
